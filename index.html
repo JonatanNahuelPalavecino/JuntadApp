@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script defer src="./js/stock.js"></script>
+    <script defer src="./js/function.js"></script>
+    <script defer src="./js/app.js"></script>
+    <title>JuntadApp - Tu lugar de bebidas</title>
+</head>
+<body>
+    <div id="body" class="contenedor__principal">
+        <header class="header">
+            <nav class="contenedor__nav">
+                <div class="contenedor__nav">
+                    <a href="#"><img class="contenedor__logo" src="./img/logo.png" alt="logo"></a>
+                    <ul class="contenedor__listado">
+                        <li><a class="contenedor__item contenedor__enlace" href="#">Inicio</a></li>
+                        <li><a class="contenedor__item contenedor__enlace" href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="contenedor__listado">
+                        <li id="modal-abrir"><a class="contenedor__item contenedor__enlace" href="#">Mi carrito▼</a></li>
+                        <li class="contenedor__item"><input class="input" type="text" placeholder="Encuentra tu bebida"></li>
+                        <li class="contenedor__item"><button class="button">Buscar</button></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <div class="hero">
+                    <img class="hero__img kenburns-top" src="./img/pexels-kampus-production-5935182.jpg" alt="">
+                    <p class="hero__text">Bienvenido a la plataforma que convierte tu reunion, en una fiesta!</p>
+                </div>
+            </section>
+            <strong class="titulo">NUESTROS PRODUCTOS:</strong>
+            <section id="contenedor__uno" class="sector__productos">
+
+            </section>
+            <div id="modal-container" class="modal-container">
+                <div id="modal"> 
+                    <div class="centrar">
+                        <strong>Mi compra:</strong>
+                        <hr>
+                    </div>
+                    <div id="box">
+                            
+                    </div>
+                    <div class="centrar">
+                        <strong id="total"></strong>
+                    </div>
+                    <div class="centrar">
+                        <button id="finalizar-compra" class="button btn">Finalizar compra</button>
+                        <button id="modal-cerrar" class="button btn">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="contenedor__footer">
+            <div class="footer__box">
+                <p>JuntadApp © 2022</p>
+                <p>Todos los derechos reservados</p>
+            </div>
+            <hr class="separador">
+            <div>
+                <ul class="footer__box">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Trabajá con nosotros</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
+                </ul>
+            </div>
+            <hr class="separador">
+            <div class="footer__box">
+                <span>Nuestras redes:</span>
+                <ul class="footer__boxRow">
+                    <li><a href="#"><img class="img__footer" src="./img/fb.png" alt=""></a></li>
+                    <li><a href="#"><img class="img__footer" src="./img/ig.png" alt=""></a></li>
+                    <li><a href="#"><img class="img__footer" src="./img/wpp.png" alt=""></a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
