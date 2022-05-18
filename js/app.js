@@ -41,9 +41,9 @@ const sombra = document.getElementById('modal-container')
 
 const modal = document.getElementById('modal')
 
-const alerta = document.getElementById('alerta')
+let alerta = document.getElementById('alerta')
 
-const mostrarAlerta = document.getElementById('mostrarAlerta')
+let mostrarAlerta = document.getElementById('mostrarAlerta')
 
 
 
@@ -71,3 +71,4 @@ mostrarAlerta.addEventListener('click', () => {
         alerta.classList.remove('contenedor__alerta')
     }, 2000)
 })
+
