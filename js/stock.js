@@ -2,7 +2,7 @@ const stockProducto = [
     {id: 1, nombre: 'Brahma 453cc', tipo: 'rubia', precio: 180, stock: 10, foto: './img/D_NQ_NP_640945-MLA44839805234_022021-O.png'},
     {id: 2, nombre: 'Andes Roja 473cc', tipo: 'roja', precio: 150, stock: 10, foto: './img/D_NQ_NP_654410-MLA44839773937_022021-O.png'},
     {id: 3, nombre: 'Andes Negra 473cc', tipo: 'negra', precio: 280, stock: 10, foto: './img/D_NQ_NP_685447-MLA44839788798_022021-O.png'},
-    {id: 4, nombre: 'Temple Scottish 473cc', tipo: 'rubia', precio: 280, stock: 10, foto: './img/D_NQ_NP_654410-MLA44839773937_022021-O.png', foto: './img/D_NQ_NP_687361-MLA44839723921_022021-O.png'},
+    {id: 4, nombre: 'Temple Scottish 473cc', tipo: 'rubia', precio: 280, stock: 10, foto: './img/D_NQ_NP_654410-MLA44839773937_022021-O.png'},
     {id: 5, nombre: 'Andes Ipa Andina 473cc', tipo: 'rubia', precio: 280, stock: 10, foto: './img/D_NQ_NP_707500-MLA44839743700_022021-O.png'},
     {id: 6, nombre: 'Andes Rubia 473cc', tipo: 'rubia', precio: 280, stock: 10, foto: './img/D_NQ_NP_718419-MLA44839770194_022021-O.png'},
     {id: 7, nombre: 'Temple Wolf Ipa 473cc', tipo: 'rubia', precio: 280, stock: 10, foto: './img/D_NQ_NP_810097-MLA44839765447_022021-O.png'},

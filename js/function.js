@@ -18,8 +18,10 @@ const mostrarCompra = () => {
             div.innerHTML = `
             <div class="contenido">
                 <img class="img" src="${prod.foto}" alt="...">
-                <div>${prod.nombre}</div>
-                <div>$${prod.precio}</div>
+                <div class="centrar">
+                    <div class="tarjetas-desc">${prod.nombre}</div>
+                    <div>$${prod.precio}</div>
+                </div>
                 <button onclick="eliminarDelCarrito(${prod.id})" class="button">Eliminar</button>
             </div>
             <hr>    
@@ -50,16 +52,40 @@ const mostrarTotal = () => {
 
 function agregarAlCarrito (prodId) {
     let producto = stockProducto.find(el => el.id === prodId)
-    carrito.push(producto)
-    localStorage.setItem('carrito', JSON.stringify(carrito))
-    mostrarCompra()
+
+    if (producto.stock > 0) {
+        carrito.push(producto)
+        producto.stock--
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+        mostrarCompra()
+        mostrarTotal()
+        avisoAgregado(prodId)
+    } else {
+        const alerta = document.getElementById('alertaStock' + prodId)
+        alerta.classList.add('contenedor__alerta')
+        setTimeout(() => {
+            alerta.classList.remove('contenedor__alerta')
+        }, 2000)
+    }
 }
 
-// ===== ELIMINO LOS PRODUCTOS DEL CARRITO ====
+// ====== AVISO DE PRODUCTO AGREGADO =========
+
+function avisoAgregado (e) {
+    const alerta = document.getElementById('alerta' + e)
+    alerta.classList.add('contenedor__alerta')
+    setTimeout(() => {
+        alerta.classList.remove('contenedor__alerta')
+    }, 2000)
+}
+
+
+// ===== ELIMINO UNO POR UNO LOS PRODUCTOS DEL CARRITO ====
 
 function eliminarDelCarrito (prodId) {
     let producto = carrito.find(el => el.id === prodId)
     carrito.splice(carrito.indexOf(producto), 1)
+    producto.stock++
     localStorage.setItem('carrito', JSON.stringify(carrito))
     mostrarCompra()
     mostrarTotal()

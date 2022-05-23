@@ -18,15 +18,18 @@ stockProducto.forEach( (prod) => {
     const div = document.createElement('div')
     div.className = "carta"
     div.innerHTML = `
-        <div id="alerta" class="contenedor__alertaOculto">
+        <div id="alerta${prod.id}" class="contenedor__alertaOculto">
             <span>Agregado! :)</span>
+        </div>
+        <div id="alertaStock${prod.id}" class="contenedor__alertaOculto">
+            <span>No hay Stock disponible! :(</span>
         </div>
         <img src=${prod.foto} class="carta__img" alt="img${prod.id}">
         <div class="carta__text">
             <h5 class="carta__titulo">${prod.nombre}</h5>
             <p class="carta__descripcion">$${prod.precio}</p>
         </div>
-        <button id="mostrarAlerta" onclick="agregarAlCarrito(${prod.id})" class="button btn">Agregar al carrito</button>
+        <button onclick="agregarAlCarrito(${prod.id})" class="button btn btn-margin">Agregar al carrito</button>
     `
     contenedorUno.appendChild(div)
 })
@@ -41,11 +44,7 @@ const sombra = document.getElementById('modal-container')
 
 const modal = document.getElementById('modal')
 
-let alerta = document.getElementById('alerta')
-
-let mostrarAlerta = document.getElementById('mostrarAlerta')
-
-
+const vaciarCarrito = document.getElementById('vaciar-carrito')
 
 // // ===== DECLARACION DE EVENTOS PARA ABRIR Y CERRAR MODAL =====
 
@@ -65,10 +64,13 @@ modal.addEventListener('click', (e) => {
     e.stopPropagation()
 })
 
-mostrarAlerta.addEventListener('click', () => {
-    alerta.classList.add('contenedor__alerta')
-    setTimeout(() => {
-        alerta.classList.remove('contenedor__alerta')
-    }, 2000)
-})
+vaciarCarrito.addEventListener('click', () => {
+    carrito.forEach( (prod) => {
+        prod.stock++
+    })
+    carrito = []
+    localStorage.clear()
 
+    mostrarCompra()
+    mostrarTotal()
+})
