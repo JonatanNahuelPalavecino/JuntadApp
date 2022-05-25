@@ -46,6 +46,8 @@ const modal = document.getElementById('modal')
 
 const vaciarCarrito = document.getElementById('vaciar-carrito')
 
+const cargarProducto = document.getElementById('enviar-producto')
+
 // // ===== DECLARACION DE EVENTOS PARA ABRIR Y CERRAR MODAL =====
 
 botonAbrir.addEventListener('click', () => {
@@ -74,3 +76,5 @@ vaciarCarrito.addEventListener('click', () => {
     mostrarCompra()
     mostrarTotal()
 })
+
+cargarProducto.addEventListener("submit", cargarProductos)

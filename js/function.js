@@ -90,3 +90,28 @@ function eliminarDelCarrito (prodId) {
     mostrarCompra()
     mostrarTotal()
 }
+
+// ===== CONSTRUCTOR DE PRODUCTOS ====
+
+class crearProducto {
+    constructor(id, nombre, precio, foto, stock) {
+        this.id = id
+        this.nombre = nombre
+        this.tipo = tipo
+        this.precio = preciothis
+        this.stock = stock
+        this.foto = foto
+    }
+}
+
+function cargarProductos (e) {
+    e.preventDefault()
+    const id = stockProducto.length++
+    const nombre = document.getElementById('nombre-producto').value
+    const tipo = document.getElementById('tipo-producto').value
+    const precio = document.getElementById('precio-producto').value
+    const stock =document.getElementById('stock-producto').value
+    const foto = document.getElementById('foto-producto').value
+    stockProducto.push(new crearProducto(id, nombre, tipo, precio, stock, foto))
+    console.log(stockProducto)
+}
