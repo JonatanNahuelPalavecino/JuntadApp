@@ -290,10 +290,8 @@ button {
     right: 30px;
     top: 90px;
     width: 355px;
-    height: 500px;
     padding: 16px;
     background-color: darkgrey;
-    border-radius: 50px;
     border-radius: 30px;
     background: darkgrey;
     box-shadow: -7px -7px 20px, 
@@ -316,6 +314,7 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    padding-top: 20px;
 }
 
 .btn-success {
