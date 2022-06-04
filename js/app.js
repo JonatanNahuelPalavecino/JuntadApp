@@ -46,6 +46,8 @@ const modal = document.getElementById('modal')
 
 const vaciarCarrito = document.getElementById('vaciar-carrito')
 
+const finalizarCompra = document.getElementById('finalizar-compra')
+
 // // ===== DECLARACION DE EVENTOS PARA ABRIR Y CERRAR MODAL =====
 
 botonAbrir.addEventListener('click', () => {
@@ -73,4 +75,24 @@ vaciarCarrito.addEventListener('click', () => {
 
     mostrarCompra()
     mostrarTotal()
+})
+
+finalizarCompra.addEventListener('click', () => {
+    Swal.fire({
+        title: 'Está seguro de desea comprar estos productos?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No'
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Compra Finalizada!',
+                icon: 'success',
+                text: 'Tu compra ha sido finalizada con éxito'
+            })
+        }
+    })
+    sombra.classList.remove('modal-activo')
 })

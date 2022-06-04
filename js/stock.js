@@ -13,9 +13,3 @@ let stockProducto = [
     {id: 12, nombre: 'Miller Rubia 1L', tipo: 'rubia', precio: 250, stock: 10, foto: './img/Cerveza-Rubia-Retornable-Miller-1-Lt-1-64397.png'},
     {id: 13, nombre: 'Imperial Ipa 1L', tipo: 'rubia', precio: 250, stock: 10, foto: './img/Imperial-IPA.png'},
 ]
-
-const stockEnLS = JSON.parse(localStorage.getItem('stockProducto'))
-
-if (stockEnLS !== null) {
-    stockProducto = stockEnLS
-}
