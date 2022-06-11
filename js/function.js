@@ -61,10 +61,10 @@ function agregarAlCarrito (prodId) {
         mostrarTotal()
         avisoAgregado(prodId)
     } else {
-        const alerta = document.getElementById('alertaStock' + prodId)
-        alerta.classList.add('contenedor__alerta')
+        const alertaStock = document.getElementById('alertaStock' + prodId)
+        alertaStock.classList.add('contenedor__alerta')
         setTimeout(() => {
-            alerta.classList.remove('contenedor__alerta')
+            alertaStock.classList.remove('contenedor__alerta')
         }, 2000)
     }
 }

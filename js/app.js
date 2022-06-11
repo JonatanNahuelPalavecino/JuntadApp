@@ -11,28 +11,41 @@ if (carritoEnLS !== null) {
     mostrarCompra()
 }
 
+// TRAIGO EL ARCHIVO .JSON CON EL STOCK Y LO GUARDO EN UNA VARIABLE
+
+let stockProducto = []
+
+const cargaDeStock = async () => {
+    const response = await fetch('js/stock.json')
+    const data = await response.json()
+    stockProducto = data
+    
 // ======= CREO LOS NODOS PARA LOS PRODUCTOS =========
 
-stockProducto.forEach( (prod) => {
+    stockProducto.forEach( (prod) => {
+    
+        const div = document.createElement('div')
+        div.className = "carta"
+        div.innerHTML = `
+            <div id="alerta${prod.id}" class="contenedor__alertaOculto">
+                <span>Agregado! :)</span>
+            </div>
+            <div id="alertaStock${prod.id}" class="contenedor__alertaOculto">
+                <span>No hay Stock disponible! :(</span>
+            </div>
+            <img src=${prod.foto} class="carta__img" alt="img${prod.id}">
+            <div class="carta__text">
+                <h5 class="carta__titulo">${prod.nombre}</h5>
+                <p class="carta__descripcion">$${prod.precio}</p>
+            </div>
+            <button onclick="agregarAlCarrito(${prod.id})" class="button btn btn-margin">Agregar al carrito</button>
+        `
+        contenedorUno.appendChild(div)
+    })
+}
 
-    const div = document.createElement('div')
-    div.className = "carta"
-    div.innerHTML = `
-        <div id="alerta${prod.id}" class="contenedor__alertaOculto">
-            <span>Agregado! :)</span>
-        </div>
-        <div id="alertaStock${prod.id}" class="contenedor__alertaOculto">
-            <span>No hay Stock disponible! :(</span>
-        </div>
-        <img src=${prod.foto} class="carta__img" alt="img${prod.id}">
-        <div class="carta__text">
-            <h5 class="carta__titulo">${prod.nombre}</h5>
-            <p class="carta__descripcion">$${prod.precio}</p>
-        </div>
-        <button onclick="agregarAlCarrito(${prod.id})" class="button btn btn-margin">Agregar al carrito</button>
-    `
-    contenedorUno.appendChild(div)
-})
+cargaDeStock()
+
 
 // ====  DECLARACION DE BOTONES  ====
 
@@ -48,7 +61,7 @@ const vaciarCarrito = document.getElementById('vaciar-carrito')
 
 const finalizarCompra = document.getElementById('finalizar-compra')
 
-// // ===== DECLARACION DE EVENTOS PARA ABRIR Y CERRAR MODAL =====
+// ===== DECLARACION DE EVENTOS PARA ABRIR Y CERRAR MODAL =====
 
 botonAbrir.addEventListener('click', () => {
     sombra.classList.add('modal-activo')
@@ -66,6 +79,8 @@ modal.addEventListener('click', (e) => {
     e.stopPropagation()
 })
 
+// ===== DECLARACION DE EVENTO PARA VACIAR TODO EL CARRITO CON UN BOTON =======
+
 vaciarCarrito.addEventListener('click', () => {
     carrito.forEach( (prod) => {
         prod.stock++
@@ -76,6 +91,8 @@ vaciarCarrito.addEventListener('click', () => {
     mostrarCompra()
     mostrarTotal()
 })
+
+// ===== DECLARACION DE EVENTO PARA FINALIZAR LA COMPRA =======
 
 finalizarCompra.addEventListener('click', () => {
     Swal.fire({
