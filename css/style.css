@@ -29,6 +29,24 @@
     margin-right: 20px;
 }
 
+.movimiento__logo {
+    animation: movimientoLogo 2s ease-out;
+}
+
+@keyframes movimientoLogo {
+    0% {
+        transform: rotate(0deg);
+    }
+    33% {
+        transform: rotate(7deg)
+    }
+    66% {
+        transform: rotate(-7deg)
+    }
+    99% {
+        transform: rotate(0deg);
+    }
+}
 
 .contenedor__listado {
     display: flex;

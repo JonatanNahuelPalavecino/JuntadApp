@@ -61,6 +61,8 @@ const vaciarCarrito = document.getElementById('vaciar-carrito')
 
 const finalizarCompra = document.getElementById('finalizar-compra')
 
+const img = document.getElementById('img')
+
 // ===== DECLARACION DE EVENTOS PARA ABRIR Y CERRAR MODAL =====
 
 botonAbrir.addEventListener('click', () => {
@@ -112,4 +114,13 @@ finalizarCompra.addEventListener('click', () => {
         }
     })
     sombra.classList.remove('modal-activo')
+})
+
+// ====== MOVIMIENTO EN EL LOGO CUANDO SE LE HACE HOVER =====
+
+img.addEventListener('mouseover', () => {
+    img.classList.add('movimiento__logo')
+    setTimeout(() => {
+        img.classList.remove('movimiento__logo')
+    }, 2000)
 })
